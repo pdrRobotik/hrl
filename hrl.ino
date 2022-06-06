@@ -28,17 +28,17 @@ void setup()
     delay(1);
   ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
 
-  ftduino.motor_set(Ftduino::M2, Ftduino::LEFT); // arm komplett nach unten
+  ftduino.motor_set(Ftduino::M2, Ftduino::RIGHT); // arm komplett nach unten
   while (!ftduino.input_get(Ftduino::I1))
     delay(1);
   ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
 
-  ftduino.motor_set(Ftduino::M2, Ftduino::RIGHT); // arm fährt etwas hoch
+  ftduino.motor_set(Ftduino::M2, Ftduino::LEFT); // arm fährt etwas hoch
   delay(1000);
   ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
 
   ftduino.motor_set(Ftduino::M3, Ftduino::RIGHT); // arm fährt aus
-  delay(1000);
+  delay(13000);
   ftduino.motor_set(Ftduino::M3, Ftduino::OFF);
 }
 void loop()
@@ -117,9 +117,9 @@ void fach0_einlagern()
   ftduino.motor_set(Ftduino::M3, Ftduino::OFF);
 
   ftduino.motor_set(Ftduino::M2, Ftduino::RIGHT); // arm fährt komplett hoch
-  while (!ftduino.input_get(Ftduino::I1))
+  while (!ftduino.input_get(Ftduino::I2))
     delay(1);
-  ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
+  ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
 }
 
 void fach0_auslagern()
