@@ -5,44 +5,43 @@ RobotikInterConnect* ric;
 int counter = 0;
 
 void setup() {
-  ric = new RobotikInterConnect("greifarm");
+  ric = new RobotikInterConnect("hrl");
 
-    ftduino.motor_set(Ftduino::M1, Ftduino::RIGHT);
-    while (!ftduino.input_get(Ftduino::I2)) delay(1);
-    ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
+    ftduino.motor_set(Ftduino::MX, Ftduino::XXX);
+    while (!ftduino.input_get(Ftduino::IX)) delay(1);
+    ftduino.motor_set(Ftduino::MX, Ftduino::OFF);
 
-    ftduino.motor_set(Ftduino::M2, Ftduino::LEFT);
-    while (!ftduino.input_get(Ftduino::I6)) delay(1);
-    ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
+    ftduino.motor_set(Ftduino::MX, Ftduino::XXX);
+    while (!ftduino.input_get(Ftduino::IX)) delay(1);
+    ftduino.motor_set(Ftduino::MX, Ftduino::OFF);
 
-    ftduino.motor_set(Ftduino::M3, Ftduino::RIGHT);
-    while (!ftduino.input_get(Ftduino::I7)) delay(1);
-    ftduino.motor_set(Ftduino::M3, Ftduino::OFF);
+    ftduino.motor_set(Ftduino::MX, Ftduino::XXX);
+    while (!ftduino.input_get(Ftduino::IX)) delay(1);
+    ftduino.motor_set(Ftduino::MX, Ftduino::OFF);
 
-    ftduino.output_set(Ftduino::O8, Ftduino::OFF);
 }
 void loop() {
-  ftduino.motor_set(Ftduino::M1, Ftduino::RIGHT);
-    while (!ftduino.input_get(Ftduino::I2)) delay(1);
-    ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
+  ftduino.motor_set(Ftduino::MX, Ftduino::XXX);
+  while (!ftduino.input_get(Ftduino::IX)) delay(1);
+  ftduino.motor_set(Ftduino::MX, Ftduino::OFF);
 
-    ftduino.motor_set(Ftduino::M2, Ftduino::LEFT);
-    while (!ftduino.input_get(Ftduino::I6)) delay(1);
-    ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
+  ftduino.motor_set(Ftduino::MX, Ftduino::XXX);
+  while (!ftduino.input_get(Ftduino::IX)) delay(1);
+  ftduino.motor_set(Ftduino::MX, Ftduino::OFF);
 
-    ftduino.motor_set(Ftduino::M3, Ftduino::RIGHT);
-    while (!ftduino.input_get(Ftduino::I7)) delay(1);
-    ftduino.motor_set(Ftduino::M3, Ftduino::OFF);
+  ftduino.motor_set(Ftduino::MX, Ftduino::XXX);
+  while (!ftduino.input_get(Ftduino::IX)) delay(1);
+  ftduino.motor_set(Ftduino::MX, Ftduino::OFF);
 
   ric->send("mfc","websocket","OK");
   int result = ric->read_wait().toInt();
     
-    ftduino.output_set(Ftduino::O8, Ftduino::HI);
+  
 
     
-    if (result == "r") {
-      ftduino.motor_set(Ftduino::M2, Ftduino::RIGHT);
-      delay(12300);
+  if (result == "r") {
+    ftduino.motor_set(Ftduino::M2, Ftduino::RIGHT);
+    delay(12300);
       ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
     } else if (result == "g") {
       ftduino.motor_set(Ftduino::M2, Ftduino::RIGHT);
@@ -54,7 +53,7 @@ void loop() {
       ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
     }
     
-    //Arm runte
+    //Arm runter
     ftduino.motor_set(Ftduino::M1, Ftduino::LEFT);
     while (!ftduino.input_get(Ftduino::I1)) delay(1);
     ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
