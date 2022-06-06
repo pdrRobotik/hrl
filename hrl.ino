@@ -27,6 +27,11 @@ void loop()
   ric->send("mfc", "websocket", "OK");
   int result = ric->read_wait().toInt();
 
+  ftduino.motor_set(Ftduino::MX, Ftduino::XXX);
+  delay(1);
+  ftduino.motor_set(Ftduino::MX, Ftduino::OFF);
+  delay(1);
+
   switch (result)
   {
   case 00:
