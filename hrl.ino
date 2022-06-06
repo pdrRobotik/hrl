@@ -40,27 +40,25 @@ void loop()
     delay(1);
   ftduino.motor_set(Ftduino::MX, Ftduino::OFF);
 
+
   ric->send("mfc", "websocket", "OK");
   int result = ric->read_wait().toInt();
 
-  if (result == "r")
-  {
-    ftduino.motor_set(Ftduino::M2, Ftduino::RIGHT);
-    delay(12300);
-    ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
-  }
-  else if (result == "g")
-  {
-    ftduino.motor_set(Ftduino::M2, Ftduino::RIGHT);
-    delay(6500);
-    ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
-  }
-  else if (result == "b")
-  {
-    ftduino.motor_set(Ftduino::M2, Ftduino::RIGHT);
-    delay(800);
-    ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
-  }
+  switch(result) {
+    case 00: ;break;
+    case 01: ;break;
+    case 02: ;break;
+    case 03: ;break;
+    case 04: ;break;
+    case 05: ;break;
+    case 10: ;break;
+    case 11: ;break;
+    case 12: ;break;
+    case 13: ;break;
+    case 14: ;break;
+    case 15: ;break;  
+      }
+
 
   // Arm runter
   ftduino.motor_set(Ftduino::M1, Ftduino::LEFT);
