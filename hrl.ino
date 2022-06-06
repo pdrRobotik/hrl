@@ -7,28 +7,28 @@ void setup()
 {
   ric = new RobotikInterConnect("hrl");
 
-  ftduino.motor_set(Ftduino::MX, Ftduino::XXX); // arm komplett einziehen
+  ftduino.motor_set(Ftduino::M3, Ftduino::LEFT); // arm komplett einziehen
   while (!ftduino.input_get(Ftduino::IX))
     delay(1);
-  ftduino.motor_set(Ftduino::MX, Ftduino::OFF);
+  ftduino.motor_set(Ftduino::M3, Ftduino::OFF);
 
-  ftduino.motor_set(Ftduino::MX, Ftduino::XXX); // arm komplett nach rechts
+  ftduino.motor_set(Ftduino::M1, Ftduino::LEFT); // arm komplett nach rechts
   while (!ftduino.input_get(Ftduino::IX))
     delay(1);
-  ftduino.motor_set(Ftduino::MX, Ftduino::OFF);
+  ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
 
-  ftduino.motor_set(Ftduino::MX, Ftduino::XXX); // arm komplett nach unten
+  ftduino.motor_set(Ftduino::M2, Ftduino::LEFT); // arm komplett nach unten
   while (!ftduino.input_get(Ftduino::IX))
     delay(1);
-  ftduino.motor_set(Ftduino::MX, Ftduino::OFF);
+  ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
 
-  ftduino.motor_set(Ftduino::MX, Ftduino::XXX); // arm fährt etwas hoch
+  ftduino.motor_set(Ftduino::M2, Ftduino::RIGHT); // arm fährt etwas hoch
   delay(1);
-  ftduino.motor_set(Ftduino::MX, Ftduino::OFF);
+  ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
 
-  ftduino.motor_set(Ftduino::MX, Ftduino::XXX); // arm fährt aus
+  ftduino.motor_set(Ftduino::M3, Ftduino::RIGHT); // arm fährt aus
   delay(1);
-  ftduino.motor_set(Ftduino::MX, Ftduino::OFF);
+  ftduino.motor_set(Ftduino::M3, Ftduino::OFF);
 }
 void loop()
 {
