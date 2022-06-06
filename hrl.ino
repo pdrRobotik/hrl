@@ -54,58 +54,58 @@ void loop()
   switch (result)
   {
   case 00:
+    fach0_einlagern();
+    zur_annahme();
+    break;
+  case 01:
+    fach1_einlagern();
+    zur_annahme();
+    break;
+  case 02:
+    fach2_einlagern();
+    zur_annahme();
+    break;
+  case 03:
+    fach3_einlagern();
+    zur_annahme();
+    break;
+  case 04:
+    fach4_einlagern();
+    zur_annahme();
+    break;
+  case 05:
+    fach5_einlagern();
+    zur_annahme();
+    break;
+  case 10:
     fach0_auslagern();
     zur_ausgabe();
     go_back();
     break;
-  case 01:
-    fach0_einlagern();
-    zur_annahme();
-    break;
-  case 02:
+  case 11:
     fach1_auslagern();
     zur_ausgabe();
     go_back();
     break;
-  case 03:
-    fach1_einlagern();
-    zur_annahme();
-    break;
-  case 04:
+  case 12:
     fach2_auslagern();
     zur_ausgabe();
     go_back();
     break;
-  case 05:
-    fach2_einlagern();
-    zur_annahme();
-    break;
-  case 10:
+  case 13:
     fach3_auslagern();
     zur_ausgabe();
     go_back();
     break;
-  case 11:
-    fach3_einlagern();
-    zur_annahme();
-    break;
-  case 12:
+  case 14:
     fach4_auslagern();
     zur_ausgabe();
     go_back();
     break;
-  case 13:
-    fach4_einlagern();
-    zur_annahme();
-    break;
-  case 14:
+  case 15:
     fach5_auslagern();
     zur_ausgabe();
     go_back();
-    break;
-  case 15:
-    fach5_einlagern();
-    zur_annahme();
     break;
   }
 }
