@@ -38,7 +38,7 @@ void setup()
   ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
 
   ftduino.motor_set(Ftduino::M3, Ftduino::RIGHT); // arm fährt aus
-  delay(11000);
+  delay(10000);
   ftduino.motor_set(Ftduino::M3, Ftduino::OFF);
 }
 void loop()
@@ -396,7 +396,7 @@ void zur_annahme()
   ftduino.motor_set(Ftduino::M3, Ftduino::OFF);
 
   ftduino.motor_set(Ftduino::M2, Ftduino::RIGHT); // arm fährt runter und legt box ab
-  delay(2300);
+  delay(2100);
   ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
 
   ftduino.motor_set(Ftduino::M3, Ftduino::LEFT); // arm fährt komplett ein
@@ -419,7 +419,7 @@ void zur_annahme()
   ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
 
   ftduino.motor_set(Ftduino::M3, Ftduino::RIGHT); // arm fährt aus (zur annahme)
-  delay(11000);
+  delay(10000);
   ftduino.motor_set(Ftduino::M3, Ftduino::OFF);
 }
 
