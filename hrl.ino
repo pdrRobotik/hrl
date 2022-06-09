@@ -14,7 +14,6 @@ RobotikInterConnect *ric;
 // I5=greifer unten
 // I6=taster ganz rechts
 
-
 void setup()
 {
   ric = new RobotikInterConnect("hrl");
@@ -80,32 +79,32 @@ void loop()
     break;
   case 10:
     fach0_auslagern();
-    zur_ausgabe();
+    zur_ausgabe_oben();
     go_back();
     break;
   case 11:
     fach1_auslagern();
-    zur_ausgabe();
+    zur_ausgabe_oben();
     go_back();
     break;
   case 12:
     fach2_auslagern();
-    zur_ausgabe();
+    zur_ausgabe_oben();
     go_back();
     break;
   case 13:
     fach3_auslagern();
-    zur_ausgabe();
+    zur_ausgabe_oben();
     go_back();
     break;
   case 14:
     fach4_auslagern();
-    zur_ausgabe();
+    zur_ausgabe_unten();
     go_back();
     break;
   case 15:
     fach5_auslagern();
-    zur_ausgabe();
+    zur_ausgabe_unten();
     go_back();
     break;
   }
@@ -151,7 +150,10 @@ void fach1_einlagern()
   while (counter < 1)
   {
     if (ftduino.input_get(Ftduino::I5))
-      counter++;
+    {
+      counter += 1;
+      delay(1000);
+    }
     delay(1);
   }
   delay(850);
@@ -174,20 +176,23 @@ void fach1_auslagern()
   ftduino.motor_set(Ftduino::M1, Ftduino::LEFT); // arm fährt nach links
   while (counter < 1)
   {
-    if (ftduino.input_get(Ftduino::I1))
-      counter++;
+    if (ftduino.input_get(Ftduino::I5))
+    {
+      counter += 1;
+      delay(1000);
+    }
     delay(1);
   }
   ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
 
-  ftduino.motor_set(Ftduino::M1, Ftduino::LEFT); // arm fährt komplett hoch
-  while (!ftduino.input_get(Ftduino::I1))
+  ftduino.motor_set(Ftduino::M2, Ftduino::LEFT); // arm fährt komplett hoch
+  while (!ftduino.input_get(Ftduino::I2))
     delay(1);
-  ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
+  ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
 
-  ftduino.motor_set(Ftduino::M1, Ftduino::LEFT); // arm fährt etwas runter
-  delay(1);
-  ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
+  ftduino.motor_set(Ftduino::M2, Ftduino::RIGHT); // arm fährt etwas runter
+  delay(1500);
+  ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
 }
 
 void fach2_einlagern()
@@ -202,7 +207,10 @@ void fach2_einlagern()
   while (counter < 2)
   {
     if (ftduino.input_get(Ftduino::I5))
-      counter++;
+    {
+      counter += 1;
+      delay(1000);
+    }
     delay(1);
   }
   ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
@@ -224,20 +232,23 @@ void fach2_auslagern()
   ftduino.motor_set(Ftduino::M1, Ftduino::LEFT); // arm fährt nach links
   while (counter < 2)
   {
-    if (ftduino.input_get(Ftduino::I1))
-      counter++;
+    if (ftduino.input_get(Ftduino::I5))
+    {
+      counter += 1;
+      delay(1000);
+    }
     delay(1);
   }
   ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
 
-  ftduino.motor_set(Ftduino::M1, Ftduino::LEFT); // arm fährt komplett hoch
-  while (!ftduino.input_get(Ftduino::I1))
+  ftduino.motor_set(Ftduino::M2, Ftduino::LEFT); // arm fährt komplett hoch
+  while (!ftduino.input_get(Ftduino::I2))
     delay(1);
-  ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
+  ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
 
-  ftduino.motor_set(Ftduino::M1, Ftduino::LEFT); // arm fährt etwas runter
-  delay(1);
-  ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
+  ftduino.motor_set(Ftduino::M2, Ftduino::RIGHT); // arm fährt etwas runter
+  delay(1500);
+  ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
 }
 
 void fach3_einlagern()
@@ -252,7 +263,10 @@ void fach3_einlagern()
   while (counter < 3)
   {
     if (ftduino.input_get(Ftduino::I5))
-      counter++;
+    {
+      counter += 1;
+      delay(1000);
+    }
     delay(1);
   }
   ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
@@ -274,20 +288,23 @@ void fach3_auslagern()
   ftduino.motor_set(Ftduino::M1, Ftduino::LEFT); // arm fährt nach links
   while (counter < 3)
   {
-    if (ftduino.input_get(Ftduino::I1))
-      counter++;
+    if (ftduino.input_get(Ftduino::I5))
+    {
+      counter += 1;
+      delay(1000);
+    }
     delay(1);
   }
   ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
 
-  ftduino.motor_set(Ftduino::M1, Ftduino::LEFT); // arm fährt komplett hoch
-  while (!ftduino.input_get(Ftduino::I1))
+  ftduino.motor_set(Ftduino::M2, Ftduino::LEFT); // arm fährt komplett hoch
+  while (!ftduino.input_get(Ftduino::I2))
     delay(1);
-  ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
+  ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
 
-  ftduino.motor_set(Ftduino::M1, Ftduino::LEFT); // arm fährt etwas runter
-  delay(1);
-  ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
+  ftduino.motor_set(Ftduino::M2, Ftduino::RIGHT); // arm fährt etwas runter
+  delay(1500);
+  ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
 }
 
 void fach4_einlagern()
@@ -328,8 +345,11 @@ void fach4_auslagern()
   ftduino.motor_set(Ftduino::M1, Ftduino::LEFT); // arm fährt nach links
   while (counter < 1)
   {
-    if (ftduino.input_get(Ftduino::I1))
-      counter++;
+    if (ftduino.input_get(Ftduino::I5))
+    {
+      counter += 1;
+      delay(1000);
+    }
     delay(1);
   }
   ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
@@ -338,6 +358,10 @@ void fach4_auslagern()
   while (!ftduino.input_get(Ftduino::I1))
     delay(1);
   ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
+
+  ftduino.motor_set(Ftduino::M2, Ftduino::LEFT); // arm fährt etwas hoch
+  delay(1000);
+  ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
 }
 
 void fach5_einlagern()
@@ -426,7 +450,7 @@ void zur_annahme()
   ftduino.motor_set(Ftduino::M3, Ftduino::OFF);
 }
 
-void zur_ausgabe()
+void zur_ausgabe_oben()
 {
   int counter = 0;
   char ric_cnt;
@@ -447,13 +471,64 @@ void zur_ausgabe()
 
   ftduino.motor_set(Ftduino::M1, Ftduino::LEFT); // arm fährt nach links
 
-  counter = 0;
   while (counter < 3)
   {
-    if (ftduino.input_get(Ftduino::I5)) {
-      counter+=1;
+    if (ftduino.input_get(Ftduino::I5))
+    {
+      counter += 1;
       delay(1000);
-      } 
+    }
+    delay(1);
+  }
+
+  ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
+
+  ftduino.motor_set(Ftduino::M3, Ftduino::RIGHT); // arm fährt komplett aus
+  while (!ftduino.input_get(Ftduino::I3))
+    delay(1);
+  ftduino.motor_set(Ftduino::M3, Ftduino::OFF);
+
+  ftduino.motor_set(Ftduino::M3, Ftduino::LEFT); // arm zieht etwas ein
+  delay(3000);
+  ftduino.motor_set(Ftduino::M3, Ftduino::OFF);
+
+  ftduino.motor_set(Ftduino::M2, Ftduino::RIGHT); // arm fährt runter und legt box ab
+  delay(6000);
+  ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
+}
+
+void zur_ausgabe_unten()
+{
+  int counter = 0;
+  char ric_cnt;
+
+  ftduino.motor_set(Ftduino::M3, Ftduino::RIGHT); // arm fährt komplett aus
+  while (!ftduino.input_get(Ftduino::I3))
+    delay(1);
+  ftduino.motor_set(Ftduino::M3, Ftduino::OFF);
+
+  ftduino.motor_set(Ftduino::M2, Ftduino::LEFT); // arm fähr etwas hoch und greift box
+  delay(2000);
+  ftduino.motor_set(Ftduino::M2, Ftduino::LEFT);
+
+  ftduino.motor_set(Ftduino::M3, Ftduino::LEFT); // arm zieht etwas ein
+  delay(7000);
+  ftduino.motor_set(Ftduino::M3, Ftduino::OFF);
+
+  ftduino.motor_set(Ftduino::M2, Ftduino::LEFT); // arm fährt komplett hoch
+  while (!ftduino.input_get(Ftduino::I2))
+    delay(1);
+  ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
+
+  ftduino.motor_set(Ftduino::M1, Ftduino::LEFT); // arm fährt nach links
+
+  while (counter < 3)
+  {
+    if (ftduino.input_get(Ftduino::I5))
+    {
+      counter += 1;
+      delay(1000);
+    }
     delay(1);
   }
 
@@ -475,22 +550,26 @@ void zur_ausgabe()
 
 void go_back()
 {
-  ftduino.motor_set(Ftduino::M1, Ftduino::LEFT); // arm fährt komplett ein
-  while (!ftduino.input_get(Ftduino::I1))
+  ftduino.motor_set(Ftduino::M3, Ftduino::LEFT); // arm komplett einziehen
+  while (!ftduino.input_get(Ftduino::I4))
+    delay(1);
+  ftduino.motor_set(Ftduino::M3, Ftduino::OFF);
+
+  ftduino.motor_set(Ftduino::M1, Ftduino::RIGHT); // arm komplett nach rechts
+  while (!ftduino.input_get(Ftduino::I6))
     delay(1);
   ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
 
-  ftduino.motor_set(Ftduino::M1, Ftduino::LEFT); // arm fährt komplett zurück
+  ftduino.motor_set(Ftduino::M2, Ftduino::RIGHT); // arm fährt komplett runter
   while (!ftduino.input_get(Ftduino::I1))
     delay(1);
-  ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
+  ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
 
-  ftduino.motor_set(Ftduino::M1, Ftduino::LEFT); // arm fährt komplett runter (zur annahme)
-  while (!ftduino.input_get(Ftduino::I1))
-    delay(1);
-  ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
+  ftduino.motor_set(Ftduino::M2, Ftduino::LEFT); // arm fährt etwas hoch
+  delay(1300);
+  ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
 
-  ftduino.motor_set(Ftduino::M1, Ftduino::LEFT); // arm fährt aus (zur annahme)
-  delay(1);
-  ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
+  ftduino.motor_set(Ftduino::M3, Ftduino::RIGHT); // arm fährt aus (zur annahme)
+  delay(10000);
+  ftduino.motor_set(Ftduino::M3, Ftduino::OFF);
 }
