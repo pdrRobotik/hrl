@@ -222,6 +222,7 @@ void fach2_einlagern() // fertig
     }
     delay(1);
   }
+  delay(100);
   ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
 
   ftduino.motor_set(Ftduino::M2, Ftduino::LEFT); // arm fährt komplett hoch
@@ -248,6 +249,7 @@ void fach2_auslagern() // fertig
     }
     delay(1);
   }
+  delay(100);
   ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
 
   ftduino.motor_set(Ftduino::M2, Ftduino::LEFT); // arm fährt komplett hoch
@@ -278,7 +280,7 @@ void fach3_einlagern() // fertig
     }
     delay(1);
   }
-  delay(1800);
+  delay(1750);
   ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
 
   ftduino.motor_set(Ftduino::M2, Ftduino::LEFT); // arm fährt komplett hoch
@@ -305,7 +307,7 @@ void fach3_auslagern() // fertig
     }
     delay(1);
   }
-  delay(1800);
+  delay(1750);
   ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
 
   ftduino.motor_set(Ftduino::M2, Ftduino::LEFT); // arm fährt komplett hoch
@@ -463,16 +465,7 @@ void zur_annahme() // fertig
 
 void zur_ausgabe_oben() // fertig
 {
-  left;
   int counter = 0;
-  if (left < 0)
-  {
-    left = 0
-  }
-  else
-  {
-    break;
-  }
 
   ftduino.motor_set(Ftduino::M3, Ftduino::RIGHT); // arm fährt komplett aus
   while (!ftduino.input_get(Ftduino::I3))
@@ -488,18 +481,21 @@ void zur_ausgabe_oben() // fertig
   delay(7000);
   ftduino.motor_set(Ftduino::M3, Ftduino::OFF);
 
-  ftduino.motor_set(Ftduino::M1, Ftduino::LEFT); // arm fährt nach links
-  while (counter < left)
+  if (left != 0)
   {
-    if (ftduino.input_get(Ftduino::I5))
+    ftduino.motor_set(Ftduino::M1, Ftduino::LEFT); // arm fährt nach links
+    while (counter < left)
     {
-      counter += 1;
-      delay(1000);
+      if (ftduino.input_get(Ftduino::I5))
+      {
+        counter += 1;
+        delay(1000);
+      }
+      delay(1);
     }
-    delay(1);
+    delay(1750);
+    ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
   }
-  delay(1800);
-  ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
 
   ftduino.motor_set(Ftduino::M3, Ftduino::RIGHT); // arm fährt etwas aus
   delay(2000);
