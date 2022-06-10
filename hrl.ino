@@ -110,7 +110,7 @@ void loop()
   }
 }
 
-void fach0_einlagern()
+void fach0_einlagern() // fertig
 {
   ftduino.motor_set(Ftduino::M3, Ftduino::LEFT); // arm zieht etwas ein
   delay(5000);
@@ -122,7 +122,7 @@ void fach0_einlagern()
   ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
 }
 
-void fach0_auslagern()
+void fach0_auslagern() // fertig
 {
   ftduino.motor_set(Ftduino::M3, Ftduino::LEFT); // arm zieht etwas ein
   delay(5000);
@@ -138,7 +138,7 @@ void fach0_auslagern()
   ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
 }
 
-void fach1_einlagern()
+void fach1_einlagern() //fertig
 {
   int counter = 0;
 
@@ -165,7 +165,7 @@ void fach1_einlagern()
   ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
 }
 
-void fach1_auslagern()
+void fach1_auslagern() // fertig
 {
   int counter = 0;
 
@@ -195,7 +195,7 @@ void fach1_auslagern()
   ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
 }
 
-void fach2_einlagern()
+void fach2_einlagern() // fertig
 {
   int counter = 0;
 
@@ -221,7 +221,7 @@ void fach2_einlagern()
   ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
 }
 
-void fach2_auslagern()
+void fach2_auslagern() // fertig
 {
   int counter = 0;
 
@@ -251,7 +251,7 @@ void fach2_auslagern()
   ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
 }
 
-void fach3_einlagern()
+void fach3_einlagern() //fertig
 {
   int counter = 0;
 
@@ -277,7 +277,7 @@ void fach3_einlagern()
   ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
 }
 
-void fach3_auslagern()
+void fach3_auslagern() // fertig
 {
   int counter = 0;
 
@@ -307,7 +307,7 @@ void fach3_auslagern()
   ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
 }
 
-void fach4_einlagern()
+void fach4_einlagern() // nicht fertig
 {
   int counter = 0;
 
@@ -334,7 +334,7 @@ void fach4_einlagern()
   ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
 }
 
-void fach4_auslagern()
+void fach4_auslagern() // nicht fertig
 {
   int counter = 0;
 
@@ -364,7 +364,7 @@ void fach4_auslagern()
   ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
 }
 
-void fach5_einlagern()
+void fach5_einlagern() // nicht fertig
 {
   int counter = 0;
 
@@ -391,7 +391,7 @@ void fach5_einlagern()
   ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
 }
 
-void fach5_auslagern()
+void fach5_auslagern() // nicht fertig
 {
   int counter = 0;
 
@@ -414,7 +414,7 @@ void fach5_auslagern()
   ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
 }
 
-void zur_annahme()
+void zur_annahme() // fertig
 {
   ric->send("debug", "websocket", "stufe1");
   ftduino.motor_set(Ftduino::M3, Ftduino::RIGHT); // arm fährt komplett aus
@@ -450,7 +450,7 @@ void zur_annahme()
   ftduino.motor_set(Ftduino::M3, Ftduino::OFF);
 }
 
-void zur_ausgabe_oben()
+void zur_ausgabe_oben() // fertig
 {
   int counter = 0;
   char ric_cnt;
@@ -497,7 +497,7 @@ void zur_ausgabe_oben()
   ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
 }
 
-void zur_ausgabe_unten()
+void zur_ausgabe_unten() // fertig
 {
   int counter = 0;
   char ric_cnt;
@@ -548,7 +548,7 @@ void zur_ausgabe_unten()
   ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
 }
 
-void go_back()
+void go_back() // fertig
 {
   ftduino.motor_set(Ftduino::M3, Ftduino::LEFT); // arm komplett einziehen
   while (!ftduino.input_get(Ftduino::I4))
