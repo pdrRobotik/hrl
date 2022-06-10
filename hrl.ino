@@ -42,7 +42,7 @@ void setup()
   delay(10000);
   ftduino.motor_set(Ftduino::M3, Ftduino::OFF);
 }
-int loop()
+void loop()
 {
   ric->send("mfc", "websocket", "OK");
   int result = ric->read_wait().toInt();
@@ -305,6 +305,7 @@ void fach3_auslagern() // fertig
     }
     delay(1);
   }
+  delay(1800);
   ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
 
   ftduino.motor_set(Ftduino::M2, Ftduino::LEFT); // arm fährt komplett hoch
@@ -462,7 +463,7 @@ void zur_annahme() // fertig
 
  void zur_ausgabe_oben() // fertig
 {
-  int left = loop();
+  left;
   int counter = 0;
   char ric_cnt;
 
@@ -501,6 +502,8 @@ void zur_annahme() // fertig
   while (!ftduino.input_get(Ftduino::I1))
     delay(1);
   ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
+  
+  left = 0
 }
 
 void zur_ausgabe_unten() // fertig
