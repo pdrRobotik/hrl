@@ -13,6 +13,7 @@ RobotikInterConnect *ric;
 // I4=arm hinten
 // I5=greifer unten
 // I6=taster ganz rechts
+int left = 0;
 
 void setup()
 {
@@ -41,10 +42,9 @@ void setup()
   delay(10000);
   ftduino.motor_set(Ftduino::M3, Ftduino::OFF);
 }
-int loop(int result)
+int loop()
 {
   ric->send("mfc", "websocket", "OK");
-  int left = 0;
   int result = ric->read_wait().toInt();
 
   ftduino.motor_set(Ftduino::M4, Ftduino::LEFT);
