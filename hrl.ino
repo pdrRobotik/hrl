@@ -146,7 +146,7 @@ void fach0_auslagern() // fertig
   ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
 }
 
-void fach1_einlagern() //fertig
+void fach1_einlagern() // fertig
 {
   int counter = 0;
 
@@ -260,7 +260,7 @@ void fach2_auslagern() // fertig
   ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
 }
 
-void fach3_einlagern() //fertig
+void fach3_einlagern() // fertig
 {
   int counter = 0;
 
@@ -461,11 +461,18 @@ void zur_annahme() // fertig
   ftduino.motor_set(Ftduino::M3, Ftduino::OFF);
 }
 
- void zur_ausgabe_oben() // fertig
+void zur_ausgabe_oben() // fertig
 {
   left;
   int counter = 0;
-  char ric_cnt;
+  if (left < 0)
+  {
+    left = 0
+  }
+  else
+  {
+    break;
+  }
 
   ftduino.motor_set(Ftduino::M3, Ftduino::RIGHT); // arm fährt komplett aus
   while (!ftduino.input_get(Ftduino::I3))
@@ -502,8 +509,8 @@ void zur_annahme() // fertig
   while (!ftduino.input_get(Ftduino::I1))
     delay(1);
   ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
-  
-  left = 0
+
+  left = 0;
 }
 
 void zur_ausgabe_unten() // fertig
