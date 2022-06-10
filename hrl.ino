@@ -423,7 +423,7 @@ void zur_annahme() // fertig
   ftduino.motor_set(Ftduino::M3, Ftduino::OFF);
   ric->send("debug", "websocket", "stufe2");
   ftduino.motor_set(Ftduino::M2, Ftduino::RIGHT); // arm fährt runter und legt box ab
-  delay(2100);
+  delay(1800);
   ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
   ric->send("debug", "websocket", "stufe3");
   ftduino.motor_set(Ftduino::M3, Ftduino::LEFT); // arm fährt komplett ein
