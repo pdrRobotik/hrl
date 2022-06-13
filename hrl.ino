@@ -47,10 +47,13 @@ void loop()
   ric->send("mfc", "websocket", "OK");
   int result = ric->read_wait().toInt();
 
-  ftduino.motor_set(Ftduino::M4, Ftduino::LEFT);
-  delay(4000);
-  ftduino.motor_set(Ftduino::M4, Ftduino::OFF);
-  delay(1);
+  if (result <= 9)
+  {
+    ftduino.motor_set(Ftduino::M4, Ftduino::LEFT);
+    delay(4000);
+    ftduino.motor_set(Ftduino::M4, Ftduino::OFF);
+    delay(1);
+  }
 
   switch (result)
   {
@@ -340,7 +343,6 @@ void fach4_einlagern() // nicht fertig
   }
   delay(2600);
   ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
-
 }
 
 void fach4_auslagern() // nicht fertig
@@ -389,7 +391,6 @@ void fach5_einlagern() // nicht fertig
   }
   delay(100);
   ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
-
 }
 
 void fach5_auslagern() // nicht fertig
